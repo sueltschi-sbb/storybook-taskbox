@@ -823,7 +823,7 @@
         },
         {
             "name": "TaskComponent",
-            "id": "component-TaskComponent-ccda18eb2293a49e91656c1f82681f3b",
+            "id": "component-TaskComponent-8bab5976b42537fa8f9820c4d12eb47a",
             "file": "src/app/components/task.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -833,13 +833,13 @@
             "selector": "app-task",
             "styleUrls": [],
             "styles": [],
-            "template": "<div class=\"list-item {{ task?.state }}\">\n  <label class=\"checkbox\">\n    <input\n      type=\"checkbox\"\n      [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\n      disabled=\"true\"\n      name=\"checked\"\n    />\n    <span\n      class=\"checkbox-custom\"\n      (click)=\"onArchive(task.id)\"\n      attr.aria-label=\"archiveTask-{{ task?.id }}\"\n    ></span>\n  </label>\n  <div class=\"title\">\n    <input\n      type=\"text\"\n      [value]=\"task?.title\"\n      readonly=\"true\"\n      placeholder=\"Input title\"\n    />\n  </div>\n  <div class=\"actions\">\n    <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\n      <span\n        class=\"icon-star\"\n        attr.aria-label=\"pinTask-{{ task?.id }}\"\n      ></span>\n    </a>\n  </div>\n</div>\n",
+            "template": "<div class=\"list-item {{ task?.state }}\">\n  <label class=\"checkbox\">\n    <input\n      type=\"checkbox\"\n      [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\n      disabled=\"true\"\n      name=\"checked\"\n    />\n    <span\n      class=\"checkbox-custom\"\n      (click)=\"onArchive(task.id)\"\n      attr.aria-label=\"archiveTask-{{ task?.id }}\"\n    ></span>\n  </label>\n  <div class=\"title\">\n    <input\n      type=\"text\"\n      [value]=\"task?.title\"\n      readonly=\"true\"\n      placeholder=\"Input title\"\n      style=\"background: red;\"\n    />\n  </div>\n  <div class=\"actions\">\n    <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\n      <span\n        class=\"icon-star\"\n        attr.aria-label=\"pinTask-{{ task?.id }}\"\n      ></span>\n    </a>\n  </div>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
                 {
                     "name": "task",
-                    "line": 41,
+                    "line": 42,
                     "type": "Task"
                 }
             ],
@@ -847,13 +847,13 @@
                 {
                     "name": "onArchiveTask",
                     "defaultValue": "new EventEmitter<Event>()",
-                    "line": 47,
+                    "line": 48,
                     "type": "EventEmitter"
                 },
                 {
                     "name": "onPinTask",
                     "defaultValue": "new EventEmitter<Event>()",
-                    "line": 44,
+                    "line": 45,
                     "type": "EventEmitter"
                 }
             ],
@@ -870,20 +870,20 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 60,
+                    "line": 61,
                     "description": "<p>Component method to trigger the onArchive event</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 1404,
-                                "end": 1406,
+                                "pos": 1439,
+                                "end": 1441,
                                 "flags": 0,
                                 "escapedText": "id"
                             },
                             "type": "any",
                             "tagName": {
-                                "pos": 1398,
-                                "end": 1403,
+                                "pos": 1433,
+                                "end": 1438,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -902,20 +902,20 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 54,
                     "description": "<p>Component method to trigger the onPin event</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 1265,
-                                "end": 1267,
+                                "pos": 1300,
+                                "end": 1302,
                                 "flags": 0,
                                 "escapedText": "id"
                             },
                             "type": "any",
                             "tagName": {
-                                "pos": 1259,
-                                "end": 1264,
+                                "pos": 1294,
+                                "end": 1299,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -929,7 +929,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { Task } from '../models/task.model';\n\n@Component({\n  selector: 'app-task',\n  template: `\n    <div class=\"list-item {{ task?.state }}\">\n      <label class=\"checkbox\">\n        <input\n          type=\"checkbox\"\n          [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\n          disabled=\"true\"\n          name=\"checked\"\n        />\n        <span\n          class=\"checkbox-custom\"\n          (click)=\"onArchive(task.id)\"\n          attr.aria-label=\"archiveTask-{{ task?.id }}\"\n        ></span>\n      </label>\n      <div class=\"title\">\n        <input\n          type=\"text\"\n          [value]=\"task?.title\"\n          readonly=\"true\"\n          placeholder=\"Input title\"\n        />\n      </div>\n      <div class=\"actions\">\n        <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\n          <span\n            class=\"icon-star\"\n            attr.aria-label=\"pinTask-{{ task?.id }}\"\n          ></span>\n        </a>\n      </div>\n    </div>\n  `,\n})\nexport class TaskComponent {\n  @Input() task: Task;\n\n  @Output()\n  onPinTask = new EventEmitter<Event>();\n\n  @Output()\n  onArchiveTask = new EventEmitter<Event>();\n\n  /**\n   * Component method to trigger the onPin event\n   * @param id string\n   */\n  onPin(id: any) {\n    this.onPinTask.emit(id);\n  }\n  /**\n   * Component method to trigger the onArchive event\n   * @param id string\n   */\n  onArchive(id: any) {\n    this.onArchiveTask.emit(id);\n  }\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { Task } from '../models/task.model';\n\n@Component({\n  selector: 'app-task',\n  template: `\n    <div class=\"list-item {{ task?.state }}\">\n      <label class=\"checkbox\">\n        <input\n          type=\"checkbox\"\n          [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\n          disabled=\"true\"\n          name=\"checked\"\n        />\n        <span\n          class=\"checkbox-custom\"\n          (click)=\"onArchive(task.id)\"\n          attr.aria-label=\"archiveTask-{{ task?.id }}\"\n        ></span>\n      </label>\n      <div class=\"title\">\n        <input\n          type=\"text\"\n          [value]=\"task?.title\"\n          readonly=\"true\"\n          placeholder=\"Input title\"\n          style=\"background: red;\"\n        />\n      </div>\n      <div class=\"actions\">\n        <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\n          <span\n            class=\"icon-star\"\n            attr.aria-label=\"pinTask-{{ task?.id }}\"\n          ></span>\n        </a>\n      </div>\n    </div>\n  `,\n})\nexport class TaskComponent {\n  @Input() task: Task;\n\n  @Output()\n  onPinTask = new EventEmitter<Event>();\n\n  @Output()\n  onArchiveTask = new EventEmitter<Event>();\n\n  /**\n   * Component method to trigger the onPin event\n   * @param id string\n   */\n  onPin(id: any) {\n    this.onPinTask.emit(id);\n  }\n  /**\n   * Component method to trigger the onArchive event\n   * @param id string\n   */\n  onArchive(id: any) {\n    this.onArchiveTask.emit(id);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
