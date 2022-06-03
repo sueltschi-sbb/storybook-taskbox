@@ -11,27 +11,27 @@ export const actions = {
 export class ArchiveTask {
   static readonly type = actions.ARCHIVE_TASK;
 
-  constructor(public payload: string) {}
+  constructor(public payload: string) { }
 }
 
 export class AppError {
   static readonly type = actions.ERROR;
-  constructor(public payload: boolean) {}
+  constructor(public payload: boolean) { }
 }
 
 export class PinTask {
   static readonly type = actions.PIN_TASK;
 
-  constructor(public payload: string) {}
+  constructor(public payload: string) { }
 }
 
 // The initial state of our store when the app loads.
 // Usually you would fetch this from a server
 const defaultTasks = {
-  1: { id: '1', title: 'Something', state: 'TASK_INBOX' },
-  2: { id: '2', title: 'Something more', state: 'TASK_INBOX' },
-  3: { id: '3', title: 'Something else', state: 'TASK_INBOX' },
-  4: { id: '4', title: 'Something again', state: 'TASK_INBOX' },
+  1: { id: '1', title: 'Eier und Milch einkaufen', state: 'TASK_INBOX' },
+  2: { id: '2', title: 'Frontend-Cafe besuchen', state: 'TASK_INBOX' },
+  3: { id: '3', title: 'Angular 14 Update', state: 'TASK_INBOX' },
+  4: { id: '4', title: 'Mit dem Hund spazieren gehen', state: 'TASK_INBOX' },
 };
 
 export class TaskStateModel {
